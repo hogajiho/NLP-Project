@@ -43,13 +43,9 @@ def main():
 
    model = NgramModel(10, sents)
 
-   file = open('ngramlist.txt', 'wb')
-
-   full_list = [model.unigram_frequent, model.bigram_frequent, model.trigram_frequent]
-   for i in range(3):
-      myString = " ".join(map(str, full_list[i]))
-      file.write(myString)
-      file.write("\n")
+   file = open("trigram_list.txt", "w")
+   for word in model.trigram_frequent:
+      file.write("%s %s %s\n" % (word[0], word[1], word[2]))
 
    file.close()
 
